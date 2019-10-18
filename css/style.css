@@ -63,7 +63,7 @@ li {
     border: none;
     text-align: center;
     outline: none;
-    font-size: 1.5em;
+    font-size: 1.7em;
     transition: 0.4s;
     cursor: url('../images/saber.png'), auto;
     font-family: 'Share Tech Mono', monospace;
@@ -77,4 +77,7 @@ li {
 
 footer {
     height: 5em;
+    font-size: 1.5em;
+    color: #F0E721;
+    text-align: center;
 }
