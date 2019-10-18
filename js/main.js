@@ -203,3 +203,35 @@ starships.addEventListener('click', function () {
             console.log("something went wrong...", err)
         })
 })
+
+vehicles.addEventListener('click', function () {
+    const starWarsApi = `https://swapi.co/api/vehicles`;
+    fetch(starWarsApi)
+        .then(res => res.json())
+        .then(res => {
+            while (content.firstChild) {
+                content.removeChild(content.firstChild);
+            }
+            for (let i = 0; i < res.results.length; i++) {
+                const content = document.querySelector('.content');
+                let button = document.createElement('button');
+                button.classList.add('accordion')
+                button.innerText = res.results[i].name
+                content.appendChild(button);
+                let div = document.createElement('div');
+                div.classList.add('panel');
+                button.after(div)
+                let p = document.createElement('p');
+                p.innerText = "Cargo Capacity: " + res.results[i].cargo_capacity +
+                    "\n" + "Cost in Credits: " + res.results[i].cost_in_credits +
+                    "\n" + "Manufacturer: " + res.results[i].manufacturer +
+                    "\n" + "Class: " + res.results[i].vehicle_class +
+                    "\n" + "Model: " + res.results[i].model
+                div.appendChild(p);
+            }
+            accordion();
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+})
