@@ -117,7 +117,6 @@ planets.addEventListener('click', function () {
             while (content.firstChild) {
                 content.removeChild(content.firstChild);
             }
-            console.log(res)
             for (let i = 0; i < res.results.length; i++) {
                 const content = document.querySelector('.content');
                 let button = document.createElement('button');
@@ -135,6 +134,71 @@ planets.addEventListener('click', function () {
                 div.appendChild(p);
             }
             accordion();
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+})
+
+species.addEventListener('click', function () {
+    const starWarsApi = `https://swapi.co/api/species`;
+    fetch(starWarsApi)
+        .then(res => res.json())
+        .then(res => {
+            while (content.firstChild) {
+                content.removeChild(content.firstChild);
+            }
+            for (let i = 0; i < res.results.length; i++) {
+                const content = document.querySelector('.content');
+                let button = document.createElement('button');
+                button.classList.add('accordion')
+                button.innerText = res.results[i].name
+                content.appendChild(button);
+                let div = document.createElement('div');
+                div.classList.add('panel');
+                button.after(div)
+                let p = document.createElement('p');
+                p.innerText = "Average Height: " + res.results[i].average_height +
+                    "\n" + "Average Lifespan: " + res.results[i].average_lifespan +
+                    "\n" + "Classifications: " + res.results[i].classification +
+                    "\n" + "Designation: " + res.results[i].designation +
+                    "\n" + "Language: " + res.results[i].language
+                div.appendChild(p);
+            }
+            accordion();
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+})
+
+starships.addEventListener('click', function () {
+    const starWarsApi = `https://swapi.co/api/starships`;
+    fetch(starWarsApi)
+        .then(res => res.json())
+        .then(res => {
+            while (content.firstChild) {
+                content.removeChild(content.firstChild);
+            }
+            console.log(res)
+            // for (let i = 0; i < res.results.length; i++) {
+            //     const content = document.querySelector('.content');
+            //     let button = document.createElement('button');
+            //     button.classList.add('accordion')
+            //     button.innerText = res.results[i].name
+            //     content.appendChild(button);
+            //     let div = document.createElement('div');
+            //     div.classList.add('panel');
+            //     button.after(div)
+            //     let p = document.createElement('p');
+            //     p.innerText = "Average Height: " + res.results[i].average_height +
+            //         "\n" + "Average Lifespan: " + res.results[i].average_lifespan +
+            //         "\n" + "Classifications: " + res.results[i].classification +
+            //         "\n" + "Designation: " + res.results[i].designation +
+            //         "\n" + "Language: " + res.results[i].language
+            //     div.appendChild(p);
+            // }
+            // accordion();
         })
         .catch(err => {
             console.log("something went wrong...", err)
