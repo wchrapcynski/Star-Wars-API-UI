@@ -35,7 +35,6 @@ header {
 
 .content {
     padding: 0 1em;
-    margin: 0 auto;
 }
 
 .panel {
@@ -61,4 +60,8 @@ header {
 
 .active, .accordion:hover {
     background-color: #393939;
+}
+
+footer {
+    height: 5em;
 }
