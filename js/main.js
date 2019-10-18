@@ -85,7 +85,6 @@ people.addEventListener('click', function () {
             while (content.firstChild) {
                 content.removeChild(content.firstChild);
             }
-            console.log(res)
             for (let i = 0; i < res.results.length; i++) {
                 const content = document.querySelector('.content');
                 let button = document.createElement('button');
@@ -101,6 +100,38 @@ people.addEventListener('click', function () {
                     "\n" + "Height: " + res.results[i].height +
                     "\n" + "Mass: " + res.results[i].mass +
                     "\n" + "Skin Color: " + res.results[i].skin_color
+                div.appendChild(p);
+            }
+            accordion();
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+})
+
+planets.addEventListener('click', function () {
+    const starWarsApi = `https://swapi.co/api/planets`;
+    fetch(starWarsApi)
+        .then(res => res.json())
+        .then(res => {
+            while (content.firstChild) {
+                content.removeChild(content.firstChild);
+            }
+            console.log(res)
+            for (let i = 0; i < res.results.length; i++) {
+                const content = document.querySelector('.content');
+                let button = document.createElement('button');
+                button.classList.add('accordion')
+                button.innerText = res.results[i].name
+                content.appendChild(button);
+                let div = document.createElement('div');
+                div.classList.add('panel');
+                button.after(div)
+                let p = document.createElement('p');
+                p.innerText = "Climate: " + res.results[i].climate +
+                    "\n" + "Gravity: " + res.results[i].gravity +
+                    "\n" + "Population: " + res.results[i].population +
+                    "\n" + "Terrain: " + res.results[i].terrain
                 div.appendChild(p);
             }
             accordion();
