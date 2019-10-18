@@ -9,22 +9,22 @@
 //         console.log("something went wrong...", err)
 //     })
 
-function createAccordion(nameText, descText) {
-    for(let i = 0; i < 10; i++) {
-        const content = document.querySelector('.content');
-        let button = document.createElement('button');
-        button.classList.add('accordion')
-        button.innerText = (nameText)
-        content.appendChild(button);
-        let div = document.createElement('div');
-        div.classList.add('panel');
-        button.after(div)
-        let p = document.createElement('p');
-        p.innerText = (descText)
-        div.appendChild(p);
-    }
-    accordion();
-}
+// function createAccordion(nameText, descText) {
+//     for(let i = 0; i < 10; i++) {
+//         const content = document.querySelector('.content');
+//         let button = document.createElement('button');
+//         button.classList.add('accordion')
+//         button.innerText = (nameText)
+//         content.appendChild(button);
+//         let div = document.createElement('div');
+//         div.classList.add('panel');
+//         button.after(div)
+//         let p = document.createElement('p');
+//         p.innerText = (descText)
+//         div.appendChild(p);
+//     }
+//     accordion();
+// }
 
 function accordion() {
     const accordion = document.getElementsByClassName("accordion");
@@ -41,25 +41,66 @@ function accordion() {
     }
 }
 
-const film = document.querySelector('.film');
+const content = document.querySelector('.content')
+const films = document.querySelector('.films');
 const people = document.querySelector('.people');
 const planets = document.querySelector('.planets');
 const species = document.querySelector('.species');
 const starships = document.querySelector('.starships');
 const vehicles = document.querySelector('.vehicles');
-const menuArray = [film, people, planets, species, starships, vehicles];
-const menuArrayNames = ['films', 'people', 'planets', 'species', 'starships', 'vehicles'];
 
-for(let i = 0; i < 6; i++) {
-    menuArray[i].addEventListener('click', function(){
-        const starWarsApi = `https://swapi.co/api/${menuArrayNames[i]}/${i + 1}`;
-        fetch(starWarsApi)
-            .then(res => res.json())
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                console.log("something went wrong...", err)
-            })
-    })
-}
+films.addEventListener('click', function(){
+    const starWarsApi = `https://swapi.co/api/films`;
+    fetch(starWarsApi)
+        .then(res => res.json())
+        .then(res => {  
+                while (content.firstChild) {
+                    content.removeChild(content.firstChild);
+                }
+                for (let i = 0; i < res.results.length; i++) {
+                    const content = document.querySelector('.content');
+                    let button = document.createElement('button');
+                    button.classList.add('accordion')
+                    button.innerText = (res.results[i].title)
+                    content.appendChild(button);
+                    let div = document.createElement('div');
+                    div.classList.add('panel');
+                    button.after(div)
+                    let p = document.createElement('p');
+                    p.innerText = (res.results[i].opening_crawl)
+                    div.appendChild(p);
+                }
+                accordion();
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+})
+
+people.addEventListener('click', function () {
+    const starWarsApi = `https://swapi.co/api/films`;
+    fetch(starWarsApi)
+        .then(res => res.json())
+        .then(res => {
+            while (content.firstChild) {
+                content.removeChild(content.firstChild);
+            }
+            // for (let i = 0; i < res.results.length; i++) {
+            //     const content = document.querySelector('.content');
+            //     let button = document.createElement('button');
+            //     button.classList.add('accordion')
+            //     button.innerText = (res.results[i].title)
+            //     content.appendChild(button);
+            //     let div = document.createElement('div');
+            //     div.classList.add('panel');
+            //     button.after(div)
+            //     let p = document.createElement('p');
+            //     p.innerText = (res.results[i].opening_crawl)
+            //     div.appendChild(p);
+            // }
+            // accordion();
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+})
