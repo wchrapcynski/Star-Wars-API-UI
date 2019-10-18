@@ -1,13 +1,22 @@
-const accordion = document.getElementsByClassName("accordion");
+(function accordion( ) {
+    const accordion = document.getElementsByClassName("accordion");
+    for (let i = 0; i < accordion.length; i++) {
+        accordion[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            let panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+}());
 
-for (let i = 0; i < accordion.length; i++) {
-    accordion[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        let panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-    });
-}
+const starWarsApi = 'https://swapi.co/api/';
+
+fetch(starWarsApi + "films/")
+    .then(res => res.json())
+    .then(res => {
+        console.log(res)
+    })
