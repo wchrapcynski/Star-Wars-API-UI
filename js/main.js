@@ -9,23 +9,22 @@
 //         console.log("something went wrong...", err)
 //     })
 
-function createAccordion() {
+function createAccordion(nameText, descText) {
     for(let i = 0; i < 10; i++) {
         const content = document.querySelector('.content');
         let button = document.createElement('button');
         button.classList.add('accordion')
-        button.innerText = ('This will be a name')
+        button.innerText = (nameText)
         content.appendChild(button);
         let div = document.createElement('div');
         div.classList.add('panel');
         button.after(div)
         let p = document.createElement('p');
-        p.innerText = ('This will be content')
+        p.innerText = (descText)
         div.appendChild(p);
     }
     accordion();
 }
-createAccordion();
 
 function accordion() {
     const accordion = document.getElementsByClassName("accordion");
@@ -40,4 +39,27 @@ function accordion() {
             }
         });
     }
+}
+
+const film = document.querySelector('.film');
+const people = document.querySelector('.people');
+const planets = document.querySelector('.planets');
+const species = document.querySelector('.species');
+const starships = document.querySelector('.starships');
+const vehicles = document.querySelector('.vehicles');
+const menuArray = [film, people, planets, species, starships, vehicles];
+const menuArrayNames = ['films', 'people', 'planets', 'species', 'starships', 'vehicles'];
+
+for(let i = 0; i < 6; i++) {
+    menuArray[i].addEventListener('click', function(){
+        const starWarsApi = `https://swapi.co/api/${menuArrayNames[i]}/${i + 1}`;
+        fetch(starWarsApi)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log("something went wrong...", err)
+            })
+    })
 }
