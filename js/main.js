@@ -1,31 +1,4 @@
-// API Template
-// const starWarsApi = 'https://swapi.co/api/';
-// fetch(starWarsApi)
-//     .then(res => res.json())
-//     .then(res => {
-//         console.log(res)
-//     })
-//     .catch(err => {
-//         console.log("something went wrong...", err)
-//     })
-
-// function createAccordion(nameText, descText) {
-//     for(let i = 0; i < 10; i++) {
-//         const content = document.querySelector('.content');
-//         let button = document.createElement('button');
-//         button.classList.add('accordion')
-//         button.innerText = (nameText)
-//         content.appendChild(button);
-//         let div = document.createElement('div');
-//         div.classList.add('panel');
-//         button.after(div)
-//         let p = document.createElement('p');
-//         p.innerText = (descText)
-//         div.appendChild(p);
-//     }
-//     accordion();
-// }
-
+// This function is called on to create each element of the accordion UI
 function accordion() {
     const accordion = document.getElementsByClassName("accordion");
     for (let i = 0; i < accordion.length; i++) {
@@ -41,6 +14,7 @@ function accordion() {
     }
 }
 
+// Grabs each of the menu items
 const content = document.querySelector('.content')
 const films = document.querySelector('.films');
 const people = document.querySelector('.people');
@@ -49,6 +23,7 @@ const species = document.querySelector('.species');
 const starships = document.querySelector('.starships');
 const vehicles = document.querySelector('.vehicles');
 
+// Calls for grabbing each category from the API and displaying the data.
 films.addEventListener('click', function(){
     const starWarsApi = `https://swapi.co/api/films`;
     fetch(starWarsApi)
