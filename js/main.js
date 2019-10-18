@@ -61,13 +61,13 @@ films.addEventListener('click', function(){
                     const content = document.querySelector('.content');
                     let button = document.createElement('button');
                     button.classList.add('accordion')
-                    button.innerText = (res.results[i].title)
+                    button.innerText = res.results[i].title
                     content.appendChild(button);
                     let div = document.createElement('div');
                     div.classList.add('panel');
                     button.after(div)
                     let p = document.createElement('p');
-                    p.innerText = (res.results[i].opening_crawl)
+                    p.innerText = res.results[i].opening_crawl
                     div.appendChild(p);
                 }
                 accordion();
@@ -78,27 +78,32 @@ films.addEventListener('click', function(){
 })
 
 people.addEventListener('click', function () {
-    const starWarsApi = `https://swapi.co/api/films`;
+    const starWarsApi = `https://swapi.co/api/people`;
     fetch(starWarsApi)
         .then(res => res.json())
         .then(res => {
             while (content.firstChild) {
                 content.removeChild(content.firstChild);
             }
-            // for (let i = 0; i < res.results.length; i++) {
-            //     const content = document.querySelector('.content');
-            //     let button = document.createElement('button');
-            //     button.classList.add('accordion')
-            //     button.innerText = (res.results[i].title)
-            //     content.appendChild(button);
-            //     let div = document.createElement('div');
-            //     div.classList.add('panel');
-            //     button.after(div)
-            //     let p = document.createElement('p');
-            //     p.innerText = (res.results[i].opening_crawl)
-            //     div.appendChild(p);
-            // }
-            // accordion();
+            console.log(res)
+            for (let i = 0; i < res.results.length; i++) {
+                const content = document.querySelector('.content');
+                let button = document.createElement('button');
+                button.classList.add('accordion')
+                button.innerText = res.results[i].name
+                content.appendChild(button);
+                let div = document.createElement('div');
+                div.classList.add('panel');
+                button.after(div)
+                let p = document.createElement('p');
+                p.innerText = "Birth Year: " +  res.results[i].birth_year + 
+                    "\n" + "Eye Color: " + res.results[i].eye_color + 
+                    "\n" + "Height: " + res.results[i].height +
+                    "\n" + "Mass: " + res.results[i].mass +
+                    "\n" + "Skin Color: " + res.results[i].skin_color
+                div.appendChild(p);
+            }
+            accordion();
         })
         .catch(err => {
             console.log("something went wrong...", err)
