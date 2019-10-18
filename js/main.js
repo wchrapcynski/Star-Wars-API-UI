@@ -13,10 +13,19 @@
     }
 }());
 
-const starWarsApi = 'https://swapi.co/api/';
+// API Template
+// const starWarsApi = 'https://swapi.co/api/';
+// fetch(starWarsApi)
+//     .then(res => res.json())
+//     .then(res => {
+//         console.log(res)
+//     })
+//     .catch(err => {
+//         console.log("something went wrong...", err)
+//     })
 
-fetch(starWarsApi + "films/")
-    .then(res => res.json())
-    .then(res => {
-        console.log(res)
-    })
+const content = document.querySelector('.content');
+let button = document.createElement('button');
+button.classList.add('accordion')
+button.innerText = ('This is a test')
+content.appendChild(button);
