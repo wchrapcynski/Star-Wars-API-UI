@@ -29,11 +29,8 @@ films.addEventListener('click', function(){
     fetch(starWarsApi)
         .then(res => res.json())
         .then(res => {  
-                while (content.firstChild) {
-                    content.removeChild(content.firstChild);
-                }
+                dataCleanup()
                 for (let i = 0; i < res.results.length; i++) {
-                    const content = document.querySelector('.content');
                     let button = document.createElement('button');
                     button.classList.add('accordion')
                     button.innerText = res.results[i].title
@@ -57,11 +54,8 @@ people.addEventListener('click', function () {
     fetch(starWarsApi)
         .then(res => res.json())
         .then(res => {
-            while (content.firstChild) {
-                content.removeChild(content.firstChild);
-            }
+            dataCleanup()
             for (let i = 0; i < res.results.length; i++) {
-                const content = document.querySelector('.content');
                 let button = document.createElement('button');
                 button.classList.add('accordion')
                 button.innerText = res.results[i].name
@@ -89,11 +83,8 @@ planets.addEventListener('click', function () {
     fetch(starWarsApi)
         .then(res => res.json())
         .then(res => {
-            while (content.firstChild) {
-                content.removeChild(content.firstChild);
-            }
+            dataCleanup()
             for (let i = 0; i < res.results.length; i++) {
-                const content = document.querySelector('.content');
                 let button = document.createElement('button');
                 button.classList.add('accordion')
                 button.innerText = res.results[i].name
@@ -120,11 +111,8 @@ species.addEventListener('click', function () {
     fetch(starWarsApi)
         .then(res => res.json())
         .then(res => {
-            while (content.firstChild) {
-                content.removeChild(content.firstChild);
-            }
+            dataCleanup()
             for (let i = 0; i < res.results.length; i++) {
-                const content = document.querySelector('.content');
                 let button = document.createElement('button');
                 button.classList.add('accordion')
                 button.innerText = res.results[i].name
@@ -152,11 +140,8 @@ starships.addEventListener('click', function () {
     fetch(starWarsApi)
         .then(res => res.json())
         .then(res => {
-            while (content.firstChild) {
-                content.removeChild(content.firstChild);
-            }
+            dataCleanup()
             for (let i = 0; i < res.results.length; i++) {
-                const content = document.querySelector('.content');
                 let button = document.createElement('button');
                 button.classList.add('accordion')
                 button.innerText = res.results[i].name
@@ -184,11 +169,8 @@ vehicles.addEventListener('click', function () {
     fetch(starWarsApi)
         .then(res => res.json())
         .then(res => {
-            while (content.firstChild) {
-                content.removeChild(content.firstChild);
-            }
+            dataCleanup()
             for (let i = 0; i < res.results.length; i++) {
-                const content = document.querySelector('.content');
                 let button = document.createElement('button');
                 button.classList.add('accordion')
                 button.innerText = res.results[i].name
@@ -210,3 +192,9 @@ vehicles.addEventListener('click', function () {
             console.log("something went wrong...", err)
         })
 })
+
+function dataCleanup() {
+    while (content.firstChild) {
+        content.removeChild(content.firstChild);
+    }
+}
