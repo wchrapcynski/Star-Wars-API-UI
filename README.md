@@ -9,5 +9,7 @@ The only thing that you need to do to install this project is to copy the files 
 ## API Notes
 A key thing to note about the API is that each category has a different hierarchy. So, I needed to create a seperate request for each one. This gave me a lot more control on what I could display at the cost of added quite a bit to the Javascript code.
 
+The server hosting the API can struggle to stay stable at times. I think it has a tendancy to slow down when there are a number of API requests. It usually comes back to life after a few minutes or so.
+
 ## Future Updates
-I'd like to set up a link for each category that would let the user see the rest of the database. There would be a 'Next' link where the next 10 items would display in that particular category. 
+I'd like to set up a link for each category that would let the user see the rest of the database. There would be a 'Next' link where the next 10 items would display in that particular category. A search function would be great as well.
