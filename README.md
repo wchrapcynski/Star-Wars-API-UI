@@ -12,4 +12,4 @@ A key thing to note about the API is that each category has a different hierarch
 The server hosting the API can struggle to stay stable at times. I think it has a tendancy to slow down when there are a number of API requests. It usually comes back to life after a few minutes or so.
 
 ## Future Updates
-I'd like to set up a link for each category that would let the user see the rest of the database. There would be a 'Next' link where the next 10 items would display in that particular category. A search function would be great as well.
+I'd like to set up a link for each category that would let the user see the rest of the database. A next link is currently functional but it's not perfect. Right now I just have it add another 10 to the current list when it's clicked and that can make the page quite long. I'd eventually like to set it up where the next button takes it to the next 'page'. 
