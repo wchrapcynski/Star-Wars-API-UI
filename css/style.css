@@ -13,7 +13,11 @@ header {
 
 li, .next {
     cursor: url('../images/saber.png'), auto;
+}
 
+.next {
+    position: sticky;
+    top: 0;
 }
 
 hr {
