@@ -19,6 +19,7 @@ li, .next {
     padding-top: 20px;
     position: sticky;
     top: 0;
+    display: none;
 }
 
 ul {
@@ -97,8 +98,4 @@ footer {
     font-size: 1.5em;
     color: #F0E721;
     text-align: center;
-}
-
-.hidden {
-    display: none;
 }

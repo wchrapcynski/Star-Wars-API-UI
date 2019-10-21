@@ -48,7 +48,6 @@ films.addEventListener('click', function(){
                     apiUrlNext = res.next;
                 }
                 accordion();
-                hideNext(apiUrlNext);
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -80,7 +79,6 @@ people.addEventListener('click', function () {
                 apiUrlNext = res.next;
             }
             accordion();
-            unhideNext(apiUrlNext);
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -107,7 +105,6 @@ people.addEventListener('click', function () {
                     apiUrlNext = res.next;
                 }
                 accordion();
-                hideNext(apiUrlNext);
             })
             .catch(err => {
                 console.log("something went wrong...", err)
@@ -139,7 +136,6 @@ planets.addEventListener('click', function () {
                 apiUrlNext = res.next;
             }
             accordion();
-            unhideNext(apiUrlNext);
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -166,7 +162,6 @@ planets.addEventListener('click', function () {
                     apiUrlNext = res.next;
                 }
                 accordion();
-                hideNext(apiUrlNext);
             })
             .catch(err => {
                 console.log("something went wrong...", err)
@@ -199,7 +194,6 @@ species.addEventListener('click', function () {
                 apiUrlNext = res.next;
             }
             accordion();
-            unhideNext(apiUrlNext);
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -228,7 +222,6 @@ species.addEventListener('click', function () {
                     apiUrlNext = res.next;
                 }
                 accordion();
-                hideNext(apiUrlNext);
             })
             .catch(err => {
                 console.log("something went wrong...", err)
@@ -260,7 +253,6 @@ starships.addEventListener('click', function () {
                 apiUrlNext = res.next;
             }
             accordion();
-            unhideNext(apiUrlNext);
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -288,7 +280,6 @@ starships.addEventListener('click', function () {
                     apiUrlNext = res.next;
                 }
                 accordion();
-                hideNext(apiUrlNext);
             })
             .catch(err => {
                 console.log("something went wrong...", err)
@@ -321,7 +312,6 @@ vehicles.addEventListener('click', function () {
                 apiUrlNext = res.next;
             }
             accordion();
-            unhideNext(apiUrlNext);
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -350,7 +340,6 @@ vehicles.addEventListener('click', function () {
                     apiUrlNext = res.next;
                 }
                 accordion();
-                hideNext(apiUrlNext);
             })
             .catch(err => {
                 console.log("something went wrong...", err)
@@ -361,17 +350,5 @@ vehicles.addEventListener('click', function () {
 function dataCleanup() {
     while (content.firstChild) {
         content.removeChild(content.firstChild);
-    }
-}
-
-function unhideNext(apiUrlNext) {
-    if (apiUrlNext !== null) {
-        next.classList.toggle("hidden");
-    }
-} 
-
-function hideNext(apiUrlNext) {
-    if (apiUrlNext === null) {
-        next.classList.toggle("hidden");
     }
 }
